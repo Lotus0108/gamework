@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :item_comments, only: [:create, :destroy]
-    resources :items, only: [:index, :show, :edit, :create, :update, :destroy]
+    resources :items, only: [:new, :index, :show, :edit, :create, :update, :destroy]
     resources :relationships, only: [:create, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
