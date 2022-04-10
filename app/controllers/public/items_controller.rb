@@ -8,6 +8,7 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
@@ -15,7 +16,7 @@ class Public::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.publics_id = current_public.id
+    @item.public_id = current_public.id
     @item.save
     redirect_to items_path
   end
@@ -24,11 +25,15 @@ class Public::ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
   end
 
   private
 
   def item_params
-    params.permit(:title, :body)
+    params.require(:item).permit(:title, :body)
   end
+
 end

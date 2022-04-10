@@ -3,6 +3,7 @@
     <div class="container">
       <a class="navbar-brand mx-auto" href="/"><span>Gamework</span></a>
       <%= link_to "ログアウト", destroy_public_session_path, method: :delete %>
+      <%= link_to 'マイページ', customer_path(current_public.id) %>
     </div>
   </nav>
 </header>

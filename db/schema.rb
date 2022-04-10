@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_054915) do
   end
 
   create_table "item_comments", force: :cascade do |t|
-    t.integer "publics_id", null: false
+    t.integer "public_id", null: false
     t.integer "items_id", null: false
     t.text "comments", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_054915) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "publics_id", null: false
+    t.integer "public_id", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
