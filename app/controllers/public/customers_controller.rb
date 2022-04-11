@@ -3,6 +3,8 @@ class Public::CustomersController < ApplicationController
   end
 
   def show
+    @public = Public.find(params[:id])
+    @items = @public.items
   end
 
   def edit
