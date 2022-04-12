@@ -1,16 +1,17 @@
 <div>
   <h3><%= @public.name %></h3>
-  
+  <p><%= link_to "プロフィール編集", edit_customer_path %></p>
 </div>
 
 <% @items.each do |item| %>
 <div>
   <%= link_to item_path(item.id) do %>
-    
+
   <% end %>
-  
+
   <p>ショップ名：<%= item.title %></p>
   <p>説明：<%= item.body %></p>
   <p>ユーザーネーム：<%= item.public.name %></p>
 </div>
 <% end %>
+<%= paginate @items %>

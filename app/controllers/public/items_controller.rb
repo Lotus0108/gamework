@@ -4,11 +4,12 @@ class Public::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def show
     @item = Item.find(params[:id])
+    @item_comment = ItemComment.new
   end
 
   def edit
@@ -17,8 +18,11 @@ class Public::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.public_id = current_public.id
-    @item.save
-    redirect_to items_path
+    if @item.save
+      redirect_to items_path
+    else
+      render :new
+    end
   end
 
   def update

@@ -7,6 +7,6 @@ class Public < ApplicationRecord
   has_one_attached :profile_image
 
   has_many :items, dependent: :destroy
-  
+  has_many :item_comments, dependent: :destroy
   
 end
