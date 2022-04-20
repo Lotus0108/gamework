@@ -1,4 +1,6 @@
 class Public::CustomersController < ApplicationController
+  before_action :ensure_guest_user, only: [:edit]
+
   def index
   end
 
@@ -21,6 +23,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
+  end
+
+  def ensure_guest_user
+    @public = Public.find(params[:id])
+    if @public.name == "guestuser"
+      redirect_to customer_path(current_public) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
   end
 
   private

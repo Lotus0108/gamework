@@ -45,4 +45,11 @@ class Public < ApplicationRecord
     end
   end
 
+  def self.guest
+    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |public|
+      public.password = SecureRandom.urlsafe_base64
+      public.name = "guestuser"
+    end
+  end
+
 end

@@ -25,5 +25,9 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
     get "search" => "searches#search"
   end
+
+  devise_scope :public do
+    post 'public/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
