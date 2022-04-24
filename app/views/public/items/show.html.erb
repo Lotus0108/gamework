@@ -1,8 +1,37 @@
-<div>
-  <p>商品名：<%= @item.title %></p>
-  <p>レビュー：<%= @item.body %></p>
-  <p>投稿日：<%= @item.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @item.public == current_public %>
-    <%= link_to "削除", item_path(@item), method: :delete %>
-  <% end %>
-</div>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12 offset-md-1'>
+      <table class='table'>
+  		  <tr>
+  		    <td>
+  		      <p>商品名：<%= @item.title %></p>
+  		    </td>
+  		    <td>
+  		      <p>レビュー：<%= @item.body %></p>
+  		    </td>
+  		    <td>
+  		      <% if @item.public == current_public %>
+              <%= link_to "削除", item_path(@item), method: :delete %>
+            <% end %>
+  		    </td>
+  		  </tr>
+      </table>
+
+
+
+    </div>
+    <div class='col-md-12 offset-md-1'>
+      <% @item.item_comments.each do |item_comment| %>
+        <%= item_comment.public.name %>
+        <%= item_comment.created_at.strftime('%Y/%m/%d') %><%= item_comment.comment %>
+        <% if item_comment.public == current_public %>
+          <%= link_to "削除", item_item_comment_path(item_comment.item, item_comment), method: :delete %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class='col-md-12 offset-md-1'>
+      <%= form_with model: [@item, @item_comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
+    </div>

@@ -19,9 +19,15 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :item_comments, only: [:create, :destroy]
-    resources :items, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+    resources :items, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
+      resources :item_comments, only: [:create, :destroy]
+    end
     resources :relationships, only: [:create, :destroy]
+    get "search" => "searches#search"
+  end
+
+  devise_scope :public do
+    post 'public/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

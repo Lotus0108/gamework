@@ -1,2 +1,12 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>プロフィール編集</h2>
+      <%= form_with model: @publics do |f| %>
+        <label for="inputName">Name</label>
+        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", class: "form-control name" %>
+        <%= f.submit "変更を保存", class: 'btn btn-secondary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
