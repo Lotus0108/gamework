@@ -26,6 +26,9 @@
                     <% end %>
                   </td>
                   <td><%= public.email %></td>
+                  <td>
+                    <%= link_to '削除', admin_customer_path(public), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+                  </td>
               </tr>
             <% end %>
           </tbody>

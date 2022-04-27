@@ -6,7 +6,12 @@
         <% if public_signed_in? %>
           <li>
             <%= link_to new_item_path,class: 'nav-link text-light' do %>
-              <i class="fas fa-book-open"></i> 投稿
+              <i></i> 投稿フォーム
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to items_path ,class: 'nav-link text-light' do %>
+              <i></i> レビュー覧
             <% end %>
           </li>
         <% else %>

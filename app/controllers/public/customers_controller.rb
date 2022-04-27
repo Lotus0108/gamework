@@ -16,14 +16,13 @@ class Public::CustomersController < ApplicationController
   def update
     @public = Public.find(params[:id])
     if @public.update(public_params)
-      redirect_to customers_path
+      redirect_to customer_path
     else
       render:edit
     end
   end
 
-  def unsubscribe
-  end
+  
 
   def ensure_guest_user
     @public = Public.find(params[:id])

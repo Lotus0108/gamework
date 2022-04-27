@@ -11,14 +11,15 @@ Rails.application.routes.draw do
   get "homes/about" => "public/homes#about"
 
   namespace :admin do
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :reviews, only: [:index, :destroy]
+    #resource :customers, only: :destroy
   end
 
   scope module: :public do
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :items, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
       resources :item_comments, only: [:create, :destroy]
     end

@@ -14,10 +14,16 @@ class Admin::CustomersController < ApplicationController
   def update
     @public = Public.find(params[:id])
     if @public.update(customer_params)
-      redirect_to admins_customers_path
+      redirect_to admin_customers_path
     else
       render :edit
     end
+  end
+
+  def destroy
+    @public = Public.find(params[:id])
+    @public.destroy
+    redirect_to admin_customers_path
   end
 
   private
