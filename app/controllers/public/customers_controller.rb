@@ -22,8 +22,6 @@ class Public::CustomersController < ApplicationController
     end
   end
 
-  
-
   def ensure_guest_user
     @public = Public.find(params[:id])
     if @public.name == "guestuser"

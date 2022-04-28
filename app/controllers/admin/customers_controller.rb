@@ -1,4 +1,5 @@
 class Admin::CustomersController < ApplicationController
+  
   def index
     @publics = Public.page(params[:page]).per(10)
   end
@@ -28,6 +29,6 @@ class Admin::CustomersController < ApplicationController
 
   private
   def customer_params
-    params.require(:public).permit(:name, :email, :is_deleted )
+    params.require(:public).permit(:name, :email, :is_deleted)
   end
 end

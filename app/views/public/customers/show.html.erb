@@ -4,16 +4,12 @@
       <h3><%= @public.name %></h3>
       <p><%= link_to "プロフィール編集", edit_customer_path %></p>
     </div>
-    
+
     <% @items.each do |item| %>
-    <div>
-      <%= link_to item_path(item.id) do %>
-    
-      <% end %>
-    
-      <p>商品名：<%= link_to item.title,item, class: "item_#{item.id}" %></p>
-      <p>レビュー：<%= item.body %></p>
-    </div>
+      <div>
+        <p>商品名：<%= link_to item.title,item, class: "item_#{item.id}" %></p>
+        <p>レビュー：<%= item.body %></p>
+      </div>
     <% end %>
   </div>
 </div>
