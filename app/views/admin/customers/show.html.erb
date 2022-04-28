@@ -23,7 +23,6 @@
           <th><%= @public.email %></th>
         </tr>
       </table>
-      <%= link_to '削除', admin_customers_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_public_#{@public.id}"%>
     </div>
   </div>
 </div>
