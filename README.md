@@ -17,7 +17,8 @@
 ゲーム用デバイスを探してるとき、デバイスのレビューを見たいとき
 
 ## 設計書
-<...>
+テスト仕様書　URL
+https://docs.google.com/spreadsheets/d/1D-BJEpEena21IzjmzasDpn80q-9KbSHN/edit?usp=sharing&ouid=104197083638516485409&rtpof=true&sd=true
 
 ## 開発環境
 - OS：Linux(CentOS)
